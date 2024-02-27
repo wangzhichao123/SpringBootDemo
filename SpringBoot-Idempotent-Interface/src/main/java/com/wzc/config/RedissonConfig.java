@@ -19,7 +19,7 @@ public class RedissonConfig {
     /**
      * @return RedissonClient
      */
-    @Bean(name = "redissonClient", destroyMethod = "shutdown") // 服务停止后调用 shutdown 方法
+    @Bean(name="redissonClient", destroyMethod="shutdown") // 服务停止后调用 shutdown 方法
     public RedissonClient redissonClient() {
         // 1、创建配置
         Config config = new Config();
