@@ -26,6 +26,7 @@ public class RedissonConfig {
         // 2、集群模式
              // config.useClusterServers().addNodeAddress("127.0.0.1:7004", "127.0.0.1:7001");
         config.useSingleServer()
+                .setDatabase(0)
                 .setPassword(StringUtils.isEmpty(password) ? null : password)
                 .setAddress(host.contains("://") ? "" : "redis://" + host + ":" + port);
         return Redisson.create(config);

@@ -14,7 +14,6 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
-import java.util.concurrent.TimeUnit;
 
 /**
  * description 缓存实现
@@ -38,7 +37,7 @@ public class RedisRequestLockAspect {
         // 1、获取唯一Key
         final String lockKey = RequestKeyGenerator.getLockKey(joinPoint);
         // 2、需要保证原子操作
-        Boolean success = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, "", requestLock.time(), requestLock.unit());
+        Boolean success = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, "", requestLock.expire(), requestLock.timeUnit());
         if (Boolean.FALSE.equals(success)) {
             throw new BizException("您的操作太快了,请稍后重试");
         }

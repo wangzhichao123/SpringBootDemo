@@ -12,14 +12,14 @@ public @interface RequestLock {
     String prefixKey() default "";
 
     /**
-     * 时间
+     * 过期时间
      */
-    int time();
+    int expire();
 
     /**
      * 时间单位，默认秒
      */
-    TimeUnit unit() default TimeUnit.SECONDS;
+    TimeUnit timeUnit() default TimeUnit.SECONDS;
 
     /**
      * 前缀分隔符，默认"-"
