@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @PostMapping("/test")
-    @RequestLock(prefixKey = "userinfo", time = 60)
+    @RequestLock(prefixKey = "userinfo", expire = 60)
     public String getUserInfo(@RequestBody User user){
         return user == null ? "提交失败" : user.getUserPhone() + user.getUserName();
     }
