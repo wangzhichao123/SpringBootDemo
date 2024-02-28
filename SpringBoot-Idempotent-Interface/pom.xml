@@ -40,8 +40,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <!-- 防止将依赖传递到其他模块中 -->
             <optional>true</optional>
-            <scope>true</scope>
+            <!-- 只在运行时起作用，打包时不打进去 -->
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
