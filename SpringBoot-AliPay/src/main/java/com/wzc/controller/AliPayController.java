@@ -61,7 +61,11 @@ public class AliPayController {
         }
         return "success";
     }
-    @GetMapping("/pay")
+
+    /**
+     * produces = "application/html" 告诉前端返回的类型
+     */
+    @GetMapping(value = "/pay", produces = "text/html")
     public void pay(@RequestBody AliPay aliPay, HttpServletResponse httpResponse) throws Exception {
         // 1、创建支付请求
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
