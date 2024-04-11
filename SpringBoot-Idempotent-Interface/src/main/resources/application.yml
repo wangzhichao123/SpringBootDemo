@@ -2,10 +2,10 @@ server:
   port: 8099
 spring:
   redis:
-    host: 127.0.0.9999
+    host: 47.93.149.147
     port: 6379
     timeout: 10000
-    password: password
+    password: 032727_wang
     database: 0
     lettuce:
       pool:
